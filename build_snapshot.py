@@ -1,14 +1,15 @@
-"""Собирает signed JSON-snapshot Polymarket для Oracle endpoint.
+"""Build a signed JSON snapshot of Polymarket data for the Oracle endpoint.
 
-Что включаем (MVP):
-1. timestamp / version / signer_address
-2. markets_snapshot: топ-N активных рынков с volume, current mid-price,
-   last update — выборка из локальной DuckDB + Gamma API
-3. wallets_snapshot: топ-N кошельков по 30-day realized PnL — из DuckDB
-4. ECDSA-подпись всего payload (secp256k1, eth_account)
+Snapshot contents:
+1. timestamp / schema version / signer address
+2. top_markets: top-N active markets by volume (from a local DuckDB
+   maintained by the Polymarket scraper project)
+3. top_wallets_by_30d_pnl: top-N wallets by realized PnL over the last
+   30 days (also from DuckDB)
+4. ECDSA signature over the canonical JSON (secp256k1, via eth_account)
 
-Запуск:
-  python -m oracle.build_snapshot  # пишет в oracle/public/snapshot.json
+Run:
+  python -m oracle.build_snapshot   # writes oracle/public/snapshot.json
 """
 from __future__ import annotations
 
@@ -22,8 +23,8 @@ import duckdb
 from eth_account.messages import encode_defunct
 
 ROOT = Path(__file__).parent.parent
-# Источник данных — DuckDB Polymarket-инфры (отдельный проект).
-# Можно переопределить через env POLYMARKET_DB_PATH.
+# Data source: DuckDB maintained by the Polymarket scraper (separate project).
+# Override with env POLYMARKET_DB_PATH if running on a different machine.
 import os
 _DEFAULT_DB = Path(
     r"C:\Users\icap\OneDrive\Рабочий стол\polymarket_wallet_ranker"
@@ -39,7 +40,7 @@ WALLET_LOOKBACK_DAYS = 30
 
 
 def collect_top_markets(con: duckdb.DuckDBPyConnection) -> list[dict]:
-    """Топ-N активных рынков по volume_num."""
+    """Top-N active markets by volume_num."""
     rows = con.execute("""
         SELECT slug, condition_id, title, end_date_utc, volume_num, liquidity_num
         FROM markets
@@ -61,7 +62,7 @@ def collect_top_markets(con: duckdb.DuckDBPyConnection) -> list[dict]:
 
 
 def collect_top_wallets(con: duckdb.DuckDBPyConnection) -> list[dict]:
-    """Топ-N кошельков по realized PnL за последние N дней."""
+    """Top-N wallets by realized PnL over the last N days."""
     cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=WALLET_LOOKBACK_DAYS)
     rows = con.execute("""
         SELECT wallet,
@@ -107,10 +108,11 @@ def build_payload() -> dict:
 
 
 def sign_payload(payload: dict) -> dict:
-    """Кладёт подпись и публичный адрес в payload."""
+    """Add signature and signer address to the payload."""
     from oracle.sign_keys import load_signer
     signer = load_signer()
-    # Канонический JSON (сортированные ключи, без пробелов) → SHA256 → ECDSA
+    # Canonical JSON (sorted keys, no whitespace) -> SHA256 -> ECDSA
+    # This deterministic encoding is what consumers re-compute when verifying.
     canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"),
                            ensure_ascii=False)
     digest_hex = hashlib.sha256(canonical.encode("utf-8")).hexdigest()

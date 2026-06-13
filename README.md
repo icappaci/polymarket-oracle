@@ -1,74 +1,156 @@
-# Polymarket Oracle (MVP)
+# Polymarket Oracle
 
-Signed JSON-snapshot Polymarket-данных: топ активных рынков и топ-кошельков по 30-дневному PnL.
-Подписано ECDSA-ключом (secp256k1, как у Ethereum).
+A free, signed data feed for [Polymarket](https://polymarket.com). Every minute it publishes a fresh JSON snapshot of:
 
-## Endpoint (после deploy)
+- **Top 50 active markets** — volume, liquidity, end date, current price
+- **Top 100 wallets by 30-day profit** — realized PnL, win rate, trade count
 
-```
-GET https://<your-worker>.workers.dev/snapshot.json
-```
+Each snapshot is signed with an ECDSA key, so you can verify the data really came from us and wasn't tampered with in transit.
 
-Содержит:
-- `top_markets[]` — топ активных рынков (volume_usd, liquidity_usd, end_date_utc)
-- `top_wallets_by_30d_pnl[]` — топ-100 кошельков по realized PnL за 30 дней (win_rate, n_trades)
-- `signature` — ECDSA-подпись канонического JSON
+**Live endpoint:** https://polymarket-oracle.istarley2000.workers.dev/snapshot.json
 
-## Проверка подписи (Python, для потребителей)
+---
 
-```python
-from oracle.verify_snapshot import verify
-from pathlib import Path
-verify(Path("snapshot.json"))   # True/False
-```
-
-Или вживую любым eth_account-совместимым клиентом — алгоритм:
-1. Удалить блок `"signature"` из payload
-2. `canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))`
-3. `digest = sha256(canonical)`
-4. `recovered = ecrecover(eth_msg_hash(digest), signature_hex)`
-5. Сравнить `recovered == signature.signer_address`
-
-## Локальный pipeline
+## Try it
 
 ```bash
-# Один раз: генерация ключа (приватный в keys/, НЕ коммитится)
-python -m oracle.sign_keys generate
-
-# Каждый прогон: собрать + подписать snapshot
-python -m oracle.build_snapshot
-
-# Проверить подпись локально
-python -m oracle.verify_snapshot
+curl https://polymarket-oracle.istarley2000.workers.dev/snapshot.json
 ```
 
-## Cron (например, каждую минуту)
+Or just open it in a browser.
 
-Windows (Task Scheduler) / Linux (cron):
+For a health check:
+```bash
+curl https://polymarket-oracle.istarley2000.workers.dev/health
 ```
-*/1 * * * * cd /path/to/polymarket_wallet_ranker && python -m oracle.build_snapshot
+
+---
+
+## What's inside
+
+```json
+{
+  "generated_at_unix": 1781390587,
+  "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
+  "signature": "0x...",
+  "markets": [
+    {
+      "slug": "fifwc-bra-mar-2026-06-13",
+      "title": "Brazil vs Morocco",
+      "volume_usd": 1234567,
+      "liquidity_usd": 89000,
+      "end_date_utc": "2026-06-13T22:00:00Z",
+      "outcomes": [{"name": "Brazil", "price": 0.62}, ...]
+    },
+    ...
+  ],
+  "wallets": [
+    {
+      "address": "0xa5ea13a81d2b7e8e424b182bdc1db08e756bd96a",
+      "realized_pnl_usd": 10126164,
+      "win_rate": 0.938,
+      "n_trades": 130
+    },
+    ...
+  ]
+}
 ```
 
-## SLA (planned)
+---
 
-- Update frequency: 60 seconds
-- Data freshness: ≤ 90 seconds (cron + DuckDB read)
-- Signature: secp256k1 ECDSA, deterministic over canonical JSON
-- Endpoint uptime: Cloudflare Workers ≥ 99.9%
+## Verify the signature
 
-## Использование (для prediction-протоколов)
+Each snapshot is signed with secp256k1 (the same curve Ethereum uses). To verify:
 
-Используйте feed как:
-- Reference price source для аналогичных событий
-- Whale-attribution signal (smart-money flow)
-- Liquidity health monitoring (если в Polymarket пересохнет — раннее предупреждение)
+1. Take the snapshot JSON and remove the `signature` field
+2. Serialize what's left to canonical JSON: sorted keys, no whitespace
+3. SHA-256 hash the result, wrap in Ethereum's signed-message envelope
+4. Recover the signer address from the signature
+5. Check it matches `0x1C2Dd3AFA33cF338332C47024BdB747d3240551C`
 
-## Pricing
+If you'd rather just call a function:
 
-- **Free tier:** публичный snapshot.json, 60s update — без SLA-обязательств
-- **Pro tier ($500/мес):** dedicated endpoint, 10s update, SLA 99.9%, alerts on stale
-- **Enterprise ($2000/мес):** historical query API, custom signals, дашборд
+```python
+# pip install eth-account
+from oracle.verify_snapshot import verify
+from pathlib import Path
+
+ok = verify(Path("snapshot.json"))  # True or False
+```
+
+Or in JavaScript with [ethers.js](https://docs.ethers.org/) — same algorithm, see `verify_snapshot.py` for reference.
+
+---
+
+## Update frequency
+
+| | Free (this endpoint) | Paid (planned) |
+|---|---|---|
+| Refresh | Every 60 seconds | 5-10 seconds |
+| CDN cache | 30 seconds | None |
+| Dedicated endpoint | No (shared) | Yes |
+| Stale-data alerts | No | Yes |
+| Historical query | No | Yes |
+| Uptime SLA | Best effort | 99.9% |
+
+The free tier runs on [Cloudflare Workers](https://workers.cloudflare.com/) and [GitHub raw](https://raw.githubusercontent.com/). It's funded by us — you don't sign up for anything.
+
+If you need tighter latency, custom signals, or a stable SLA, get in touch (see Contact below).
+
+---
+
+## Why we built this
+
+Prediction protocols (Azuro, Overtime, Limitless, SX, Thales) need reference data: what does the rest of the market think a sports outcome is worth? Polymarket has it, but the public API is not signed and historical wallet attribution is undocumented.
+
+This feed gives you both: a snapshot of the current top markets, plus a list of wallets that have been consistently profitable — useful as a smart-money signal or as a secondary oracle source.
+
+---
+
+## Use cases
+
+- **Reference pricing** — compare your odds to the largest prediction venue's current price
+- **Smart-money flow** — see which historically-profitable wallets are entering positions right now
+- **Liquidity health monitoring** — early warning if a Polymarket market thins out before resolution
+- **Settlement cross-check** — verify your own oracle's outcome against Polymarket's resolved price
+
+---
+
+## How to integrate
+
+Nothing to install. Pull the JSON from your service:
+
+```js
+// JavaScript example
+const r = await fetch("https://polymarket-oracle.istarley2000.workers.dev/snapshot.json");
+const snap = await r.json();
+const market = snap.markets.find(m => m.slug === "fifwc-bra-mar-2026-06-13");
+console.log(market.outcomes);
+```
+
+Polled once a minute is plenty — the CDN cache makes that effectively free for us, and you'll always get the latest published snapshot.
+
+---
+
+## Limits
+
+This is the free tier. It's intended for low-frequency reference use:
+
+- **100,000 requests / day** total across all users (Cloudflare free plan)
+- **30-second cache** — refreshing more often than that returns the cached copy
+- **No SLA** — we aim for "almost always up" but don't promise it
+
+If you're hitting these limits or need stronger guarantees, contact us about a dedicated endpoint.
+
+---
 
 ## Contact
 
-`<your_handle>` (TG/Discord), repo issues.
+- GitHub: open an issue on this repo
+- Telegram: TBD (will be added once we have an outreach channel)
+
+---
+
+## License
+
+MIT. The data is public — Polymarket exposes it through their own API. We just package it into a signed, easy-to-consume feed.

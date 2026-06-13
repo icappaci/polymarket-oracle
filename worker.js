@@ -1,26 +1,25 @@
 /**
  * Cloudflare Worker — Polymarket Oracle endpoint
  *
- * Деплой:
- *   1. Создай аккаунт Cloudflare (бесплатно): https://dash.cloudflare.com
- *   2. Установи wrangler:  npm install -g wrangler
- *   3. Логин:              wrangler login
- *   4. Деплой:             wrangler deploy
+ * Serves a signed JSON snapshot of Polymarket markets and top wallets.
+ * The snapshot is rebuilt and pushed to GitHub every minute by a cron job
+ * (see DEPLOY.md). This worker fetches the latest version from GitHub raw
+ * and caches it at the edge for 30 seconds.
  *
- * Источник данных snapshot.json — GitHub raw (бесплатный CDN):
- *   - локальный cron пушит файл в GitHub repo
- *   - Worker фетчит его при запросе и кэширует
+ * Deploy:
+ *   wrangler login
+ *   wrangler deploy
  *
- * Лимиты бесплатного тарифа:
- *   - 100k requests/day (для MVP с головой)
+ * Free tier limits:
+ *   - 100,000 requests/day
  *   - 10ms CPU/request
  *   - 1MB response
  */
 
-// Public raw URL подписанного snapshot — обновляется cron'ом (update_and_push.ps1)
+// Public raw URL of the signed snapshot — updated every minute by the cron.
 const SNAPSHOT_URL = "https://raw.githubusercontent.com/icappaci/polymarket-oracle/main/public/snapshot.json";
 
-// Кэш на 30 секунд (Worker не дёргает GitHub каждый запрос)
+// Edge cache window: don't re-fetch GitHub more often than this.
 const CACHE_TTL = 30;
 
 export default {
@@ -55,7 +54,7 @@ export default {
 };
 
 async function handleSnapshot(request, ctx) {
-  // Используем встроенный Cache API
+  // Use Cloudflare's built-in edge cache
   const cacheKey = new Request(SNAPSHOT_URL, { method: "GET" });
   const cache = caches.default;
 

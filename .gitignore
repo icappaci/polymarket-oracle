@@ -1,12 +1,16 @@
-# НИКОГДА не коммитить приватные ключи подписи!
+# NEVER commit the signing private key!
 keys/signing_key.json
 
-# Python кэш
+# Python cache
 __pycache__/
 *.pyc
 
-# node_modules для worker
+# Wrangler / Worker local state
 node_modules/
+.wrangler/
 
-# snapshot.json КОММИТИМ — это и есть наш CDN-файл (GitHub raw → Cloudflare).
-# Локальный cron обновляет его + git push каждую минуту.
+# Cron / runtime logs
+logs/
+
+# NOTE: public/snapshot.json IS committed -- it's the file the CDN serves.
+# The cron job (update_and_push.ps1) regenerates and pushes it every minute.

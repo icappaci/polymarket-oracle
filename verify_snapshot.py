@@ -1,10 +1,12 @@
-"""Проверка подписи Polymarket Oracle snapshot — публичный пример для потребителей.
+"""Verify a Polymarket Oracle snapshot signature.
 
-Запуск:
-  python -m oracle.verify_snapshot                # верифицировать oracle/public/snapshot.json
-  python -m oracle.verify_snapshot path/to.json   # или произвольный файл
+This is the reference verifier — consumers can use it as-is, or as a guide
+for re-implementing the algorithm in another language. The README points
+people here.
 
-ОТДАЁМ в README ПОЛЬЗОВАТЕЛЯМ как пример проверки.
+Run:
+  python -m oracle.verify_snapshot                # verifies oracle/public/snapshot.json
+  python -m oracle.verify_snapshot path/to.json   # or any file
 """
 from __future__ import annotations
 
@@ -41,7 +43,7 @@ def verify(path: Path) -> bool:
         print(f"  recovered: {recovered}")
         return False
 
-    print("OK: подпись валидна")
+    print("OK: signature valid")
     print(f"  signer:   {recovered}")
     print(f"  digest:   {digest_hex}")
     print(f"  ts:       {data.get('generated_at_utc')}")

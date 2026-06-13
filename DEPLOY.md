@@ -1,143 +1,145 @@
-# Oracle DEPLOY — пошаговая инструкция
+# Deployment guide
 
-Локальный MVP уже работает. Осталось 4 шага: GitHub repo → connect → Cloudflare Worker → Windows cron. Всё бесплатно. ~30-40 минут.
+Internal operational notes for running the Polymarket Oracle endpoint. End users don't need this — they just consume `https://polymarket-oracle.istarley2000.workers.dev/snapshot.json`.
+
+The full stack is free and runs on:
+- **GitHub** — stores the signed snapshot JSON (public repo)
+- **Cloudflare Workers** — serves the JSON with CORS and a 30-second CDN cache
+- **Windows Task Scheduler** — rebuilds the snapshot every minute and pushes to GitHub
+
+Total cost: **$0/month** on free tiers.
 
 ---
 
-## Шаг 1: GitHub repo (5 мин)
+## Architecture
 
-1. Открой https://github.com/new
-2. **Repository name:** `polymarket-oracle-feed` (или любое)
-3. **Public** (обязательно — иначе raw.githubusercontent не отдаст файл)
-4. **БЕЗ** README, .gitignore, license — у нас уже есть
-5. Жми **Create repository**
-6. На следующей странице скопируй URL вида `https://github.com/<твой_user>/polymarket-oracle-feed.git`
+```
+Task Scheduler (every 1 min)
+  → update_and_push.ps1
+    → python -m oracle.build_snapshot   (reads DuckDB, signs with ECDSA)
+    → git commit + push                  (to GitHub)
+  → GitHub raw URL updated
+  → Cloudflare Worker (cache TTL 30s)
+    → client gets fresh JSON
+```
 
-## Шаг 2: Push локального repo (2 мин)
+End-to-end freshness: **60-90 seconds** (cron interval + GitHub CDN propagation + Cloudflare cache window).
 
-В PowerShell:
+---
+
+## One-time setup
+
+### 1. GitHub repo
+
+Create a **public** repo (private won't work — Cloudflare Worker needs to fetch the raw file without auth). Don't initialize with README/license/gitignore — push the local commits as-is.
+
 ```powershell
-cd "C:\Users\icap\OneDrive\Рабочий стол\polymarket_monetization\oracle"
-
-# ЗАМЕНИ <твой_user>
-git remote add origin https://github.com/<твой_user>/polymarket-oracle-feed.git
-git branch -M main
+cd <path-to-oracle-folder>
+git remote add origin https://github.com/<user>/<repo>.git
 git push -u origin main
 ```
 
-При первом push GitHub попросит логин/пароль. Используй **Personal Access Token** вместо пароля:
-- https://github.com/settings/tokens → Generate new token (classic) → scope `repo` → копируй и вставь как пароль.
-- Или установи [GitHub CLI](https://cli.github.com/) и `gh auth login` — проще.
-
-После push проверь что snapshot виден:
+Verify the snapshot is reachable:
 ```
-https://raw.githubusercontent.com/<твой_user>/polymarket-oracle-feed/main/public/snapshot.json
+https://raw.githubusercontent.com/<user>/<repo>/main/public/snapshot.json
 ```
-Должен открыться JSON.
 
-## Шаг 3: Cloudflare Worker (10 мин)
+### 2. Cloudflare Worker
 
-1. Зарегистрируйся: https://dash.cloudflare.com/sign-up (бесплатно, нужен только email)
+Register for free at https://dash.cloudflare.com/sign-up (email only). Confirm the verification email or `wrangler deploy` will fail with "verify your email address".
 
-2. В PowerShell:
-   ```powershell
-   cd "C:\Users\icap\OneDrive\Рабочий стол\polymarket_monetization\oracle"
-   wrangler login
-   ```
-   Откроется браузер — авторизуй wrangler в Cloudflare.
+Install wrangler if needed:
+```powershell
+npm install -g wrangler
+```
 
-3. Открой `worker.js` в редакторе. Замени строку 24:
-   ```js
-   const SNAPSHOT_URL = "https://raw.githubusercontent.com/<твой_user>/polymarket-oracle-feed/main/public/snapshot.json";
-   ```
-   на свой реальный URL (см. Шаг 2).
+Login and deploy:
+```powershell
+cd <path-to-oracle-folder>
+wrangler login            # opens browser for OAuth
+wrangler deploy
+```
 
-4. Деплой:
-   ```powershell
-   wrangler deploy
-   ```
-   Получишь URL вида `https://polymarket-oracle.<твой_handle>.workers.dev`
+If this is your first Worker, you'll need to register a `workers.dev` subdomain (one-time, via the Cloudflare dashboard onboarding wizard). After that the deploy completes and you get a URL like `https://polymarket-oracle.<handle>.workers.dev`.
 
-5. Проверь:
-   ```
-   https://polymarket-oracle.<твой_handle>.workers.dev/snapshot.json   ← должен открыть JSON
-   https://polymarket-oracle.<твой_handle>.workers.dev/health           ← {"status":"ok",...}
-   ```
+Before deploying, edit `worker.js` and update `SNAPSHOT_URL` to point at your GitHub raw URL from step 1. Commit and push that change so the URL is part of the repo history.
 
-6. Закоммить изменённый worker.js:
-   ```powershell
-   git add worker.js
-   git commit -m "deploy: production SNAPSHOT_URL"
-   git push
-   ```
+### 3. Cron — Windows Task Scheduler
 
-## Шаг 4: Windows Task Scheduler — cron каждую минуту (5 мин)
+The `update_and_push.ps1` script does the rebuild + commit + push. Register it as a scheduled task that runs every minute:
 
-1. Открой **Task Scheduler** (Win+R → `taskschd.msc`)
-2. **Create Task...** (НЕ Basic Task — нужны расширенные настройки)
-3. **General:**
-   - Name: `polymarket-oracle-update`
-   - Run whether user is logged on or not — оставь как есть
-   - ✅ **Run with highest privileges** (для надёжности)
-4. **Triggers** → New:
-   - Begin: **On a schedule**
-   - **One time**, Start: текущее время
-   - ✅ **Repeat task every: 1 minute**
-   - For a duration of: **Indefinitely**
-5. **Actions** → New:
-   - Action: **Start a program**
-   - Program: `powershell.exe`
-   - Arguments:
-     ```
-     -NoProfile -ExecutionPolicy Bypass -File "C:\Users\icap\OneDrive\Рабочий стол\polymarket_monetization\oracle\update_and_push.ps1"
-     ```
-6. **Settings:**
-   - ✅ Allow task to be run on demand
-   - ❌ Stop the task if it runs longer than: **поставь 5 минут** (иначе зависнет навсегда)
-   - If the task is already running: **Do not start a new instance**
-7. OK → попросит пароль Windows-юзера (нужно)
-8. Правый клик → **Run** — проверить запуск
-9. Глянь лог: `oracle\logs\update_and_push.log`
+```powershell
+$scriptPath = "<absolute-path>\oracle\update_and_push.ps1"
+$action = New-ScheduledTaskAction -Execute "PowerShell.exe" `
+  -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$scriptPath`""
 
-Если push требует ввода пароля каждый раз — используй [git credential manager](https://github.com/git-ecosystem/git-credential-manager) (обычно идёт с Git for Windows) или ssh-ключ.
+$start = (Get-Date).AddSeconds(60)
+$trigger = New-ScheduledTaskTrigger -Once -At $start `
+  -RepetitionInterval (New-TimeSpan -Minutes 1)
+
+$settings = New-ScheduledTaskSettingsSet `
+  -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable `
+  -ExecutionTimeLimit (New-TimeSpan -Minutes 5) -MultipleInstances IgnoreNew
+
+$principal = New-ScheduledTaskPrincipal `
+  -UserId "$env:USERDOMAIN\$env:USERNAME" -LogonType Interactive
+
+Register-ScheduledTask -TaskName "polymarket-oracle-update" `
+  -Action $action -Trigger $trigger -Settings $settings -Principal $principal `
+  -Description "Rebuild Polymarket Oracle signed snapshot every minute" -Force
+```
+
+No admin rights needed. The task runs under the current user with interactive logon (no password required).
+
+Logs go to `oracle/logs/update_and_push.log` (auto-rotated at 500 KB). Wait two minutes after registering and confirm the log shows `push OK` entries.
+
+### 4. Git credentials
+
+The cron task runs `git push` non-interactively. Make sure Windows Credential Manager has cached your GitHub credentials — easiest way is to do one manual `git push` first; the credential manager will prompt and remember the credentials forever after.
 
 ---
 
-## После деплоя
+## Local development
 
-Через 10-15 минут от первого push'а у тебя есть:
+Run the build pipeline manually to test changes:
 
-- ✅ **Public endpoint:** `https://polymarket-oracle.<handle>.workers.dev/snapshot.json`
-- ✅ **Update freq:** 60 секунд
-- ✅ **Подпись валидна** (проверяется `python -m oracle.verify_snapshot`)
-- ✅ **CORS, кэш 30с, /health endpoint**
-- ✅ **$0/мес**
+```bash
+python -m oracle.sign_keys generate    # one-time: create signing keypair (private key stays local)
+python -m oracle.build_snapshot         # build + sign snapshot
+python -m oracle.verify_snapshot        # verify the signature locally
+```
 
-Можно показывать prediction-протоколам как часть `M2 First Outreach` в TRACK_ORACLE.md.
+The private key lives in `oracle/keys/signing_key.json`. It's listed in `.gitignore` and **must never be committed**. To audit: `git log --all --full-history -- '*signing_key.json'` should return nothing.
 
----
-
-## Чек-лист (вычёркивай по мере)
-
-- [ ] GitHub repo создан и public
-- [ ] `git push` прошёл, snapshot.json виден через raw.githubusercontent
-- [ ] Cloudflare аккаунт создан
-- [ ] `wrangler login` ОК
-- [ ] `worker.js` обновлён правильным SNAPSHOT_URL и закоммичен
-- [ ] `wrangler deploy` вернул *.workers.dev URL
-- [ ] Endpoint `/snapshot.json` отдаёт JSON в браузере
-- [ ] Task Scheduler настроен на 1 мин
-- [ ] В `logs/update_and_push.log` через 2-3 минуты есть строка "push OK"
-- [ ] Через 5-10 минут зашёл на endpoint — `generated_at_unix` обновился
+The public address (`signing_pubkey.txt`) is committed — that's the address consumers verify signatures against.
 
 ---
 
-## Что НЕ работает / частые проблемы
+## Operations checklist
 
-| Симптом | Причина | Решение |
+- [ ] GitHub repo public, push works
+- [ ] `raw.githubusercontent.com` URL returns the JSON
+- [ ] Cloudflare email verified
+- [ ] `wrangler login` succeeded
+- [ ] `workers.dev` subdomain registered
+- [ ] `worker.js` SNAPSHOT_URL points at your GitHub raw URL
+- [ ] `wrangler deploy` returns a `*.workers.dev` URL
+- [ ] `GET /snapshot.json` returns JSON in a browser
+- [ ] `GET /health` returns `{"status":"ok",...}`
+- [ ] Task Scheduler entry exists, runs every minute
+- [ ] After 5 minutes: `generated_at_unix` in the response is increasing
+- [ ] `oracle/logs/update_and_push.log` shows `push OK` lines
+
+---
+
+## Troubleshooting
+
+| Symptom | Cause | Fix |
 |---|---|---|
-| `git push` спрашивает пароль каждый раз | Нет credential helper | `git config --global credential.helper manager` или ssh-ключ |
-| Worker отдаёт 502 upstream_unavailable | SNAPSHOT_URL неверный или repo private | Проверь URL в браузере. Repo обязан быть PUBLIC. |
-| Endpoint отдаёт старый snapshot | Cloudflare кэширует 30с | Подожди или `?nocache=N` (Worker всё равно кэширует) |
-| Task Scheduler ругается "Access denied" | Запуск под другим юзером | Run with highest privileges + правильный аккаунт |
-| `wrangler deploy` ошибка quota | Превысил лимит free tier (вряд ли в первый день) | Подожди, или $5/мес paid |
+| `git push` keeps asking for password | No credential helper | Run `git config --global credential.helper manager` |
+| Worker returns 502 `upstream_unavailable` | SNAPSHOT_URL wrong or repo is private | Open the URL in a browser to check |
+| Endpoint returns stale snapshot | Cloudflare 30s cache | Wait, or look at the `x-cache: HIT/MISS` header |
+| `wrangler deploy` says "verify your email" | Cloudflare account not verified | Click the verify link in your inbox |
+| `wrangler deploy` says "register a subdomain" | First time using Workers | Open the URL the error mentions, complete the wizard, deploy again |
+| Task Scheduler shows "Access denied" | Wrong run-as user | Set principal to current Interactive user (see setup above) |
+| `wrangler deploy` says "quota exceeded" | 100k/day Workers free limit | Wait, or upgrade to $5/mo paid plan |
