@@ -1,0 +1,12 @@
+# НИКОГДА не коммитить приватные ключи подписи!
+keys/signing_key.json
+
+# Python кэш
+__pycache__/
+*.pyc
+
+# node_modules для worker
+node_modules/
+
+# snapshot.json КОММИТИМ — это и есть наш CDN-файл (GitHub raw → Cloudflare).
+# Локальный cron обновляет его + git push каждую минуту.

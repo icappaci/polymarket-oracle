@@ -1,0 +1,10 @@
+# Cloudflare Worker config — Polymarket Oracle MVP
+# Документация: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "polymarket-oracle"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Тариф (free / paid). Стартуем на free — 100k req/day хватит.
+# Если упрёмся в лимит — переключим на paid ($5/мес).
+workers_dev = true
