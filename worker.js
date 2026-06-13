@@ -17,8 +17,8 @@
  *   - 1MB response
  */
 
-// ЗАМЕНИ на URL твоего snapshot.json в GitHub (после первого push):
-const SNAPSHOT_URL = "https://raw.githubusercontent.com/<YOUR_USER>/<YOUR_REPO>/main/oracle/public/snapshot.json";
+// Public raw URL подписанного snapshot — обновляется cron'ом (update_and_push.ps1)
+const SNAPSHOT_URL = "https://raw.githubusercontent.com/icappaci/polymarket-oracle/main/public/snapshot.json";
 
 // Кэш на 30 секунд (Worker не дёргает GitHub каждый запрос)
 const CACHE_TTL = 30;
