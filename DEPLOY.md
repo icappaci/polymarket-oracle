@@ -66,12 +66,12 @@ Before deploying, edit `worker.js` and update `SNAPSHOT_URL` to point at your Gi
 
 ### 3. Cron — Windows Task Scheduler
 
-The `update_and_push.ps1` script does the rebuild + commit + push. Register it as a scheduled task that runs every minute:
+The `update_and_push.ps1` script does the rebuild + commit + push. Register it as a scheduled task that runs every minute. We launch through a small VBS wrapper (`update_silent.vbs`) because `powershell.exe -WindowStyle Hidden` still flashes a console window for ~50ms on each run — annoying when it happens every minute. The VBS wrapper uses the Win32 hide-on-start flag so the window is never created.
 
 ```powershell
-$scriptPath = "<absolute-path>\oracle\update_and_push.ps1"
-$action = New-ScheduledTaskAction -Execute "PowerShell.exe" `
-  -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$scriptPath`""
+$vbsPath = "<absolute-path>\oracle\update_silent.vbs"
+$action = New-ScheduledTaskAction -Execute "$env:SystemRoot\System32\wscript.exe" `
+  -Argument "`"$vbsPath`""
 
 $start = (Get-Date).AddSeconds(60)
 $trigger = New-ScheduledTaskTrigger -Once -At $start `
