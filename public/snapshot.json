@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-15T17:19:37.166366+00:00",
-  "generated_at_unix": 1781543977,
+  "generated_at_utc": "2026-06-15T17:20:37.354985+00:00",
+  "generated_at_unix": 1781544037,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -878,10 +878,10 @@
     },
     {
       "address": "0xd3b034d7bfb2473fb252d0414646d9786bac329e",
-      "n_trades_30d": 350,
-      "wins_30d": 206,
-      "win_rate": 0.589,
-      "realized_pnl_30d": 331241.96
+      "n_trades_30d": 349,
+      "wins_30d": 205,
+      "win_rate": 0.587,
+      "realized_pnl_30d": 324633.93
     },
     {
       "address": "0x8b3234f9027f4e994e949df4b48b90ab79015950",
@@ -1094,25 +1094,25 @@
       "realized_pnl_30d": 184474.97
     },
     {
-      "address": "0x67bb64fac5252df3f61ee2d91a4b1350e40eb6ef",
-      "n_trades_30d": 198,
-      "wins_30d": 128,
-      "win_rate": 0.646,
-      "realized_pnl_30d": 184459.17
-    },
-    {
       "address": "0x2005d16a84ceefa912d4e380cd32e7ff827875ea",
       "n_trades_30d": 2548,
       "wins_30d": 1447,
       "win_rate": 0.568,
       "realized_pnl_30d": 177193.97
+    },
+    {
+      "address": "0x2a2c53bd278c04da9962fcf96490e17f3dfb9bc1",
+      "n_trades_30d": 6,
+      "wins_30d": 5,
+      "win_rate": 0.833,
+      "realized_pnl_30d": 174903.92
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "9f2255ab91171b228894ca0c56c51a36b6b1de97e403f214e04f1353d6b783f2",
-    "signature_hex": "c40418f0176d18da956582d0cd9951d6ee18f4b204780649bb61d42604d042fe41a60d278c7da85651b299d087c2900a9885110ba34f557b673d50485c0af8b21c",
+    "digest_sha256": "f40209f25506325c1c52fa24b9d00a9bdd3d869946ebba860ebd1a3c971d762f",
+    "signature_hex": "8b56ac306d516f355df5c79e5b30539a0acffb95c52c701efdb42d4c5e228b182c3dd05f114d9dbca4439c5bc9fff3aea7a6597af43c2e8766915c02553f586a1b",
     "recoverable": true
   }
 }
