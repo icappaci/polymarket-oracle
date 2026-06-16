@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-16T12:49:40.659241+00:00",
-  "generated_at_unix": 1781614180,
+  "generated_at_utc": "2026-06-16T12:50:38.620632+00:00",
+  "generated_at_unix": 1781614238,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -409,10 +409,10 @@
   "top_wallets_by_30d_pnl": [
     {
       "address": "0xa5ea13a81d2b7e8e424b182bdc1db08e756bd96a",
-      "n_trades_30d": 115,
-      "wins_30d": 107,
+      "n_trades_30d": 114,
+      "wins_30d": 106,
       "win_rate": 0.93,
-      "realized_pnl_30d": 9318492.59
+      "realized_pnl_30d": 9312319.39
     },
     {
       "address": "0x65b54274eba5c76dee6f0fab18a590653811e82f",
@@ -892,10 +892,10 @@
     },
     {
       "address": "0xafd492974cd531aae7786210438ae46b42047e61",
-      "n_trades_30d": 212,
-      "wins_30d": 138,
-      "win_rate": 0.651,
-      "realized_pnl_30d": 301771.24
+      "n_trades_30d": 211,
+      "wins_30d": 137,
+      "win_rate": 0.649,
+      "realized_pnl_30d": 295428.64
     },
     {
       "address": "0xd3b034d7bfb2473fb252d0414646d9786bac329e",
@@ -1025,10 +1025,10 @@
     },
     {
       "address": "0x8c0b024c17831a0dde038547b7e791ae6a0d7aa5",
-      "n_trades_30d": 240,
-      "wins_30d": 163,
-      "win_rate": 0.679,
-      "realized_pnl_30d": 198386.57
+      "n_trades_30d": 239,
+      "wins_30d": 162,
+      "win_rate": 0.678,
+      "realized_pnl_30d": 198333.39
     },
     {
       "address": "0xef27152015c5313daf457804e7319e869ed3381b",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "23a1cbcd256f9e91724c0d308a18788177834c14cb1dc48ebcd137cef3286613",
-    "signature_hex": "9a2786bd2d19ef1a15865f3e31e93f169e15e58ae1ef606ca1862080e642fcce4a8a053057597d4cb010a72bcc175a6593227ca58d40e8baea3b6d6e2f9348e71b",
+    "digest_sha256": "352e2dd758836c966d869eccfec6ed60ead375220a41615c9e3f00cc45fe318e",
+    "signature_hex": "6f48bacf8f82e832b9e80996d33420fe468908bbe82e70160a101fa799eaef1f2a691495bb06c1fbaf7c1e72141a1c581ec8f2d42b83e42fb4db761f8898b1881c",
     "recoverable": true
   }
 }
