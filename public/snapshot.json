@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-17T05:37:36.084015+00:00",
-  "generated_at_unix": 1781674656,
+  "generated_at_utc": "2026-06-17T05:38:35.807677+00:00",
+  "generated_at_unix": 1781674715,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -485,18 +485,18 @@
       "realized_pnl_30d": 2049600.17
     },
     {
-      "address": "0xf284ad6d607f777f34bc643cea587c33a886b9f9",
-      "n_trades_30d": 155,
-      "wins_30d": 126,
-      "win_rate": 0.813,
-      "realized_pnl_30d": 1771761.83
-    },
-    {
       "address": "0xfbf3d501e88815464642d0e913f15379c3eeb218",
       "n_trades_30d": 125,
       "wins_30d": 75,
       "win_rate": 0.6,
       "realized_pnl_30d": 1742024.22
+    },
+    {
+      "address": "0xf284ad6d607f777f34bc643cea587c33a886b9f9",
+      "n_trades_30d": 153,
+      "wins_30d": 125,
+      "win_rate": 0.817,
+      "realized_pnl_30d": 1736634.15
     },
     {
       "address": "0x5bec79df9add70a3892041ab1a5516b60f53b215",
@@ -668,10 +668,10 @@
     },
     {
       "address": "0x70d94a4ff67ed919a8480885cf0808afefe7a684",
-      "n_trades_30d": 1046,
+      "n_trades_30d": 1045,
       "wins_30d": 421,
-      "win_rate": 0.402,
-      "realized_pnl_30d": 532707.76
+      "win_rate": 0.403,
+      "realized_pnl_30d": 532802.17
     },
     {
       "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
@@ -703,10 +703,10 @@
     },
     {
       "address": "0xd49b42bce7ea10bac53e2901c188cae20ea4bdf9",
-      "n_trades_30d": 2934,
+      "n_trades_30d": 2933,
       "wins_30d": 1147,
       "win_rate": 0.391,
-      "realized_pnl_30d": 473235.48
+      "realized_pnl_30d": 473262.85
     },
     {
       "address": "0x39d3c773be30fcc73161fc6768f46d563a779ef0",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "d6aac37bb920ab002cebe3ac076614f8d38c447eaf790629c446a12214812358",
-    "signature_hex": "74a644bce935c7feb3b40675cd856985401b06be79f1efd2c40b3e1497b290df491167de84749b8b0301ca29719ff2477e89e5f88ba172d58748177708fe032e1b",
+    "digest_sha256": "0750bfa4bce39fcff61d5c00d236f49385ed8685401c54c35881c20213983dba",
+    "signature_hex": "4bd5b60da34f42525469c26f2818dbf235281d9878c5f56821c3430589d9e97b2efc4a26192d41bddad77fa078e9a698de62acdbeccb17bbc5d29ab4b07b569a1b",
     "recoverable": true
   }
 }
