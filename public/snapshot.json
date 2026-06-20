@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-20T02:32:43.993626+00:00",
-  "generated_at_unix": 1781922763,
+  "generated_at_utc": "2026-06-20T02:33:45.227276+00:00",
+  "generated_at_unix": 1781922825,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -640,10 +640,10 @@
     },
     {
       "address": "0x70d94a4ff67ed919a8480885cf0808afefe7a684",
-      "n_trades_30d": 912,
-      "wins_30d": 376,
+      "n_trades_30d": 911,
+      "wins_30d": 375,
       "win_rate": 0.412,
-      "realized_pnl_30d": 530043.72
+      "realized_pnl_30d": 530036.27
     },
     {
       "address": "0x84cb17a50bc2487e8d64029783c3d2abcba328ad",
@@ -682,10 +682,10 @@
     },
     {
       "address": "0xbacd00c9080a82ded56f504ee8810af732b0ab35",
-      "n_trades_30d": 314,
-      "wins_30d": 151,
-      "win_rate": 0.481,
-      "realized_pnl_30d": 427362.08
+      "n_trades_30d": 312,
+      "wins_30d": 149,
+      "win_rate": 0.478,
+      "realized_pnl_30d": 427065.48
     },
     {
       "address": "0xf3c73f43afd680a35b4c65af727ebf7a495dc83b",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "931f7ebbb8e69033f4075050b8703e886eb52c8b21111493b2aafa1314696770",
-    "signature_hex": "461a58bb90f8660dd780d5368c7a6d590aac8ce38c03ab661eee5e6376c9433c41e95d2a6e77ec996ad48836f7edc68787bfa51b1697478442ec237dc853c65f1b",
+    "digest_sha256": "7e12b6e55c452d3762dabdc59dd0dba0e5d1b16b3030b49248ed49da053135fe",
+    "signature_hex": "6139fa7bd7aaec095dade3e54bc7e777c5ee9d137f0720c9188b8db9b19cc8ed58174f1cde7ab8fd6a9887a119051cfeb576ddb32d95af991b61886359b7184d1c",
     "recoverable": true
   }
 }
