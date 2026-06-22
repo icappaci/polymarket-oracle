@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-22T02:59:38.480538+00:00",
-  "generated_at_unix": 1782097178,
+  "generated_at_utc": "2026-06-22T03:00:39.993363+00:00",
+  "generated_at_unix": 1782097239,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -444,10 +444,10 @@
     },
     {
       "address": "0x9495425feeb0c250accb89275c97587011b19a27",
-      "n_trades_30d": 1508,
-      "wins_30d": 971,
+      "n_trades_30d": 1507,
+      "wins_30d": 970,
       "win_rate": 0.644,
-      "realized_pnl_30d": 2087392.01
+      "realized_pnl_30d": 2082476.26
     },
     {
       "address": "0xbee54d90051720e27921dc6874f02d646ffca636",
@@ -807,18 +807,18 @@
       "realized_pnl_30d": 255167.72
     },
     {
-      "address": "0xa2e443a9bc75d0b43f85b31c14b09eae3cb1bf9d",
-      "n_trades_30d": 177,
-      "wins_30d": 122,
-      "win_rate": 0.689,
-      "realized_pnl_30d": 247438.88
-    },
-    {
       "address": "0x5e6e2c3f06686f2607b86c90e35f536e81a1be00",
       "n_trades_30d": 69,
       "wins_30d": 36,
       "win_rate": 0.522,
       "realized_pnl_30d": 246187.67
+    },
+    {
+      "address": "0xa2e443a9bc75d0b43f85b31c14b09eae3cb1bf9d",
+      "n_trades_30d": 176,
+      "wins_30d": 121,
+      "win_rate": 0.688,
+      "realized_pnl_30d": 245968.89
     },
     {
       "address": "0x4207c4f53b785c6d0d48512a497ebd845c29b81b",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "c1d763e2787b451ab311238cace456f1098d5d4a70a5a4d3b7bf2e36ba3b73e9",
-    "signature_hex": "d546ce9ce7c7881212885de61c4a15472c1dda810a5e540b3ba51bd6279979166c487a94f483fdfdd243e4b3a00cd9849182757695667245183734db6a72b0ea1c",
+    "digest_sha256": "aca60211dd014dc0ecbf29dcc6c51b569d43bfa769fceb80fea268abf5f09cff",
+    "signature_hex": "e4284aa515f911892821475182e231ab7421f57ad7b202b3724705aedb99cfa13415550772d2d108bbbe65f69917000754fec5236b3adc3cbe284650a7a077a01b",
     "recoverable": true
   }
 }
