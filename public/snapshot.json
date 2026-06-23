@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-23T23:12:40.049499+00:00",
-  "generated_at_unix": 1782256360,
+  "generated_at_utc": "2026-06-23T23:13:42.216962+00:00",
+  "generated_at_unix": 1782256422,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -661,10 +661,10 @@
     },
     {
       "address": "0xbca08c1bc204a34f2fddbe47b438b9bd42ac9705",
-      "n_trades_30d": 2387,
-      "wins_30d": 1405,
+      "n_trades_30d": 2381,
+      "wins_30d": 1402,
       "win_rate": 0.589,
-      "realized_pnl_30d": 346684.02
+      "realized_pnl_30d": 347664.34
     },
     {
       "address": "0xfe9455e2cad5257b26547af62cbbfd75c8968a3d",
@@ -934,10 +934,10 @@
     },
     {
       "address": "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
-      "n_trades_30d": 665,
-      "wins_30d": 493,
+      "n_trades_30d": 659,
+      "wins_30d": 488,
       "win_rate": 0.741,
-      "realized_pnl_30d": 142782.11
+      "realized_pnl_30d": 142074.5
     },
     {
       "address": "0xf65506e2d5f55279d77bd67d3c80af6882ad7ea4",
@@ -1102,17 +1102,17 @@
     },
     {
       "address": "0x32ed517a571c01b6e9adecf61ba81ca48ff2f960",
-      "n_trades_30d": 1655,
-      "wins_30d": 995,
+      "n_trades_30d": 1652,
+      "wins_30d": 993,
       "win_rate": 0.601,
-      "realized_pnl_30d": 94329.13
+      "realized_pnl_30d": 94665.24
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "5b1f683350e676d28ca63296e60d60fe163dfb88c049b08be40f13b662dd3dfb",
-    "signature_hex": "d405038c0ae3c2d078aaaaa7b53b54decc147a0d21e7e31e35bafa64e1ef6a05672543c2d523e85609b5e3dc3006977f1b124774c69b215ded9538c52227831c1c",
+    "digest_sha256": "77e36bf9936704cb2dd105a589b2a25f32afcd354ba9bc327fd2bbc6c52b7094",
+    "signature_hex": "472e40cf1b47a8afdfb4f7c497621045e3f0bc28c21bb1147355e684fbc784f666a3171f09cfdb38382e9ceb946c4bdb984f1b0d5d6a3885f3a07339b60df0f91c",
     "recoverable": true
   }
 }
