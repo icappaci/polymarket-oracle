@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-24T00:18:36.887755+00:00",
-  "generated_at_unix": 1782260316,
+  "generated_at_utc": "2026-06-24T00:19:36.623697+00:00",
+  "generated_at_unix": 1782260376,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -689,10 +689,10 @@
     },
     {
       "address": "0xbca08c1bc204a34f2fddbe47b438b9bd42ac9705",
-      "n_trades_30d": 2337,
-      "wins_30d": 1376,
+      "n_trades_30d": 2333,
+      "wins_30d": 1374,
       "win_rate": 0.589,
-      "realized_pnl_30d": 327065.23
+      "realized_pnl_30d": 327080.75
     },
     {
       "address": "0x2fa0ad4b0d86e392716bd302dd6e4446b88bbe6d",
@@ -941,10 +941,10 @@
     },
     {
       "address": "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
-      "n_trades_30d": 634,
+      "n_trades_30d": 632,
       "wins_30d": 467,
-      "win_rate": 0.737,
-      "realized_pnl_30d": 138737.48
+      "win_rate": 0.739,
+      "realized_pnl_30d": 138741.8
     },
     {
       "address": "0x67bb64fac5252df3f61ee2d91a4b1350e40eb6ef",
@@ -1102,17 +1102,17 @@
     },
     {
       "address": "0x32ed517a571c01b6e9adecf61ba81ca48ff2f960",
-      "n_trades_30d": 1609,
-      "wins_30d": 964,
+      "n_trades_30d": 1608,
+      "wins_30d": 963,
       "win_rate": 0.599,
-      "realized_pnl_30d": 93190.41
+      "realized_pnl_30d": 93145.69
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "6c2782a8a8b2154841925af1a307d0b1010dca71ae1dc4916ca91ba29d025706",
-    "signature_hex": "5cd2525275d6277b08350c215c2bbe509894457cee443711b322e2b58013fb7648692bb51f24b1e5a2930fdf6029fe86052921d7fa2414400024975ad78991a81c",
+    "digest_sha256": "63b3f80de9639351dd3a69aea043c3d5823e62ddc1f00a2ec43988c766eebbb4",
+    "signature_hex": "2224bea34d6b0253f8942e8b722929c25cc8bcb8254e2d32a07c86f54526e9311ca6c62b58a7aee5cffe868c6ca94755e0fdedb1580102261ba9d936284efbd31b",
     "recoverable": true
   }
 }
