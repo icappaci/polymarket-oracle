@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-24T02:59:38.889652+00:00",
-  "generated_at_unix": 1782269978,
+  "generated_at_utc": "2026-06-24T03:02:44.909527+00:00",
+  "generated_at_unix": 1782270164,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -703,10 +703,10 @@
     },
     {
       "address": "0xe5efd6543002653b2eef940d8254911862ad9e7a",
-      "n_trades_30d": 36,
-      "wins_30d": 34,
-      "win_rate": 0.944,
-      "realized_pnl_30d": 294873.95
+      "n_trades_30d": 35,
+      "wins_30d": 33,
+      "win_rate": 0.943,
+      "realized_pnl_30d": 293797.52
     },
     {
       "address": "0x0c0e270cf879583d6a0142fc817e05b768d0434e",
@@ -982,6 +982,13 @@
       "realized_pnl_30d": 128920.7
     },
     {
+      "address": "0x146703a8a73ae1dff0f84ba44c45d878858a4372",
+      "n_trades_30d": 30,
+      "wins_30d": 29,
+      "win_rate": 0.967,
+      "realized_pnl_30d": 126406.53
+    },
+    {
       "address": "0xecaa8806a9a05049d7d5260a33dc924220e377a9",
       "n_trades_30d": 31,
       "wins_30d": 22,
@@ -1099,20 +1106,13 @@
       "wins_30d": 13,
       "win_rate": 0.867,
       "realized_pnl_30d": 97169.42
-    },
-    {
-      "address": "0x2759769cd371bee44ec5bfc5e72c7f1f092b2b38",
-      "n_trades_30d": 19,
-      "wins_30d": 19,
-      "win_rate": 1.0,
-      "realized_pnl_30d": 90906.17
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "b67d8d6b939fbf67a1652e852914474e8f7601ad3a28c039199505bf5ef61603",
-    "signature_hex": "ee422cf69918487adf57066bdf4a23cb3e0c9684752e097c37fe260aa37794543e7b21df2294f62ba229735fa4b5b745ce986e40b5aa62706a0c06eee43690051c",
+    "digest_sha256": "24b9ebc1714f78e79ce4d47efab0bcf6fc606e524362d7020d2e359e5a3e5778",
+    "signature_hex": "f18e17a6dfc2004854605129c657776acddcc10a29c6355d402940bb5087986b541479442ce49f836f382cc3a4b8dc3285dbaaa718cdb34ac652e21d981b08271c",
     "recoverable": true
   }
 }
