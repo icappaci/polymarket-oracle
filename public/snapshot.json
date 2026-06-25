@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-25T01:31:39.213927+00:00",
-  "generated_at_unix": 1782351099,
+  "generated_at_utc": "2026-06-25T01:32:37.682662+00:00",
+  "generated_at_unix": 1782351157,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -871,10 +871,10 @@
     },
     {
       "address": "0xde7be6d489bce070a959e0cb813128ae659b5f4b",
-      "n_trades_30d": 13,
-      "wins_30d": 9,
-      "win_rate": 0.692,
-      "realized_pnl_30d": 159418.6
+      "n_trades_30d": 12,
+      "wins_30d": 8,
+      "win_rate": 0.667,
+      "realized_pnl_30d": 157906.75
     },
     {
       "address": "0x96489abcb9f583d6835c8ef95ffc923d05a86825",
@@ -892,10 +892,10 @@
     },
     {
       "address": "0xc1265aa3d6f6c8315756bc46305f29c0f7a4832c",
-      "n_trades_30d": 502,
-      "wins_30d": 472,
+      "n_trades_30d": 501,
+      "wins_30d": 471,
       "win_rate": 0.94,
-      "realized_pnl_30d": 146013.86
+      "realized_pnl_30d": 146005.78
     },
     {
       "address": "0xefddbb135e2cc2648e3ca6a6b3d4fa4994d5017f",
@@ -906,10 +906,10 @@
     },
     {
       "address": "0x84571f1bf97a5c710cbe51daff2dd4556cc887fd",
-      "n_trades_30d": 413,
-      "wins_30d": 186,
-      "win_rate": 0.45,
-      "realized_pnl_30d": 143886.24
+      "n_trades_30d": 412,
+      "wins_30d": 185,
+      "win_rate": 0.449,
+      "realized_pnl_30d": 143886.2
     },
     {
       "address": "0xaa075924e1dc7cff3b9fab67401126338c4d2125",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "2ada041463a3e27309ae618477d137c36bbd43440c1c87de71c642a4dd748b62",
-    "signature_hex": "cd72c7de2af7f1ef2332a6f3c3b20609cc5213072599f9a5673e05f0fdf4ab7830876123172c0d2bfcf03178ffc3d53e27b8106e7dd9ba5649758d7da36887211b",
+    "digest_sha256": "690fc5b74beda96a0886096d0ba6b8e07142bef74b2e156c40931bf22d6431fe",
+    "signature_hex": "e9e9400a47e9b249ce15673d52b2b16280c27058ce4be6506393e7b988b2b77d64d8f12b763ae5fcfc8436a38f948498e2fed1a6b8645abfaf071fcfd26cdfa11b",
     "recoverable": true
   }
 }
