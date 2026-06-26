@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-26T02:55:36.903744+00:00",
-  "generated_at_unix": 1782442536,
+  "generated_at_utc": "2026-06-26T02:56:36.896178+00:00",
+  "generated_at_unix": 1782442596,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -423,10 +423,10 @@
     },
     {
       "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
-      "n_trades_30d": 2582,
-      "wins_30d": 1585,
+      "n_trades_30d": 2579,
+      "wins_30d": 1583,
       "win_rate": 0.614,
-      "realized_pnl_30d": 1807095.72
+      "realized_pnl_30d": 1806647.87
     },
     {
       "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
@@ -640,10 +640,10 @@
     },
     {
       "address": "0x5268527977f700f9bf9b6d5cd843859e4e70135d",
-      "n_trades_30d": 2563,
-      "wins_30d": 1363,
+      "n_trades_30d": 2559,
+      "wins_30d": 1361,
       "win_rate": 0.532,
-      "realized_pnl_30d": 343293.59
+      "realized_pnl_30d": 340523.3
     },
     {
       "address": "0xabb89972b21b304c1bed2bf26f35c8741ac9bba3",
@@ -759,10 +759,10 @@
     },
     {
       "address": "0xbca08c1bc204a34f2fddbe47b438b9bd42ac9705",
-      "n_trades_30d": 1873,
-      "wins_30d": 1099,
-      "win_rate": 0.587,
-      "realized_pnl_30d": 243474.04
+      "n_trades_30d": 1870,
+      "wins_30d": 1096,
+      "win_rate": 0.586,
+      "realized_pnl_30d": 243306.45
     },
     {
       "address": "0x1eaf5d5f822dc5211c25b5839e5b7aa70f319bf0",
@@ -800,18 +800,18 @@
       "realized_pnl_30d": 193177.81
     },
     {
-      "address": "0x2005d16a84ceefa912d4e380cd32e7ff827875ea",
-      "n_trades_30d": 2321,
-      "wins_30d": 1315,
-      "win_rate": 0.567,
-      "realized_pnl_30d": 188782.46
-    },
-    {
       "address": "0x204f72f35326db932158cba6adff0b9a1da95e14",
       "n_trades_30d": 2510,
       "wins_30d": 1296,
       "win_rate": 0.516,
       "realized_pnl_30d": 188279.05
+    },
+    {
+      "address": "0x2005d16a84ceefa912d4e380cd32e7ff827875ea",
+      "n_trades_30d": 2317,
+      "wins_30d": 1313,
+      "win_rate": 0.567,
+      "realized_pnl_30d": 187907.22
     },
     {
       "address": "0x6bab41a0dc40d6dd4c1a915b8c01969479fd1292",
@@ -891,13 +891,6 @@
       "realized_pnl_30d": 143084.72
     },
     {
-      "address": "0xd38ad20037839959d89165cf448568d584b28d26",
-      "n_trades_30d": 15,
-      "wins_30d": 13,
-      "win_rate": 0.867,
-      "realized_pnl_30d": 141034.2
-    },
-    {
       "address": "0xc1265aa3d6f6c8315756bc46305f29c0f7a4832c",
       "n_trades_30d": 487,
       "wins_30d": 458,
@@ -938,6 +931,13 @@
       "wins_30d": 19,
       "win_rate": 0.792,
       "realized_pnl_30d": 130901.1
+    },
+    {
+      "address": "0xd38ad20037839959d89165cf448568d584b28d26",
+      "n_trades_30d": 14,
+      "wins_30d": 12,
+      "win_rate": 0.857,
+      "realized_pnl_30d": 130294.83
     },
     {
       "address": "0xefddbb135e2cc2648e3ca6a6b3d4fa4994d5017f",
@@ -1004,10 +1004,10 @@
     },
     {
       "address": "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
-      "n_trades_30d": 440,
-      "wins_30d": 329,
-      "win_rate": 0.748,
-      "realized_pnl_30d": 103750.71
+      "n_trades_30d": 439,
+      "wins_30d": 328,
+      "win_rate": 0.747,
+      "realized_pnl_30d": 103746.62
     },
     {
       "address": "0xde7be6d489bce070a959e0cb813128ae659b5f4b",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "7898e4f0c38ba6eed089313ea24fedb9bfb63fbd980f9e4a4ffbfd9791534cb3",
-    "signature_hex": "f64d21163bbe5910610149a6ae624ce4c27d264b2559ab7de24d70a8c6977dad47431977da3e2fc112069be0c782f8dfde69eee5bdfb0e5476534d71d6f4842e1b",
+    "digest_sha256": "281021455e4c5488fc6bdac9728cc5e97a6cbf7645fe89a1c6d8e6fab09a10c7",
+    "signature_hex": "9747032391e88eaf4f583ac30e72c82aa67127435f47754600bae40482dcb6413cd8b558f3c0a09a6ceeb91141559bbb5550e38fab3016713d9f00be43f9a12d1b",
     "recoverable": true
   }
 }
