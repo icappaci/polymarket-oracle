@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-26T00:59:38.272343+00:00",
-  "generated_at_unix": 1782435578,
+  "generated_at_utc": "2026-06-26T01:01:20.863494+00:00",
+  "generated_at_unix": 1782435680,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -423,10 +423,10 @@
     },
     {
       "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
-      "n_trades_30d": 2687,
-      "wins_30d": 1667,
+      "n_trades_30d": 2682,
+      "wins_30d": 1662,
       "win_rate": 0.62,
-      "realized_pnl_30d": 1859742.99
+      "realized_pnl_30d": 1856246.71
     },
     {
       "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
@@ -535,10 +535,10 @@
     },
     {
       "address": "0xe8dd7741ccb12350957ec71e9ee332e0d1e6ec86",
-      "n_trades_30d": 1755,
-      "wins_30d": 772,
+      "n_trades_30d": 1753,
+      "wins_30d": 771,
       "win_rate": 0.44,
-      "realized_pnl_30d": 601761.78
+      "realized_pnl_30d": 601732.34
     },
     {
       "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
@@ -626,10 +626,10 @@
     },
     {
       "address": "0x5268527977f700f9bf9b6d5cd843859e4e70135d",
-      "n_trades_30d": 2708,
-      "wins_30d": 1442,
+      "n_trades_30d": 2701,
+      "wins_30d": 1438,
       "win_rate": 0.532,
-      "realized_pnl_30d": 373839.32
+      "realized_pnl_30d": 374855.43
     },
     {
       "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
@@ -675,10 +675,10 @@
     },
     {
       "address": "0x9495425feeb0c250accb89275c97587011b19a27",
-      "n_trades_30d": 979,
-      "wins_30d": 634,
-      "win_rate": 0.648,
-      "realized_pnl_30d": 305499.7
+      "n_trades_30d": 978,
+      "wins_30d": 633,
+      "win_rate": 0.647,
+      "realized_pnl_30d": 303838.27
     },
     {
       "address": "0x0c0e270cf879583d6a0142fc817e05b768d0434e",
@@ -737,18 +737,18 @@
       "realized_pnl_30d": 247542.07
     },
     {
-      "address": "0xbca08c1bc204a34f2fddbe47b438b9bd42ac9705",
-      "n_trades_30d": 2011,
-      "wins_30d": 1182,
-      "win_rate": 0.588,
-      "realized_pnl_30d": 246429.43
-    },
-    {
       "address": "0x13414a77a4be48988851c73dfd824d0168e70853",
       "n_trades_30d": 62,
       "wins_30d": 54,
       "win_rate": 0.871,
       "realized_pnl_30d": 246151.99
+    },
+    {
+      "address": "0xbca08c1bc204a34f2fddbe47b438b9bd42ac9705",
+      "n_trades_30d": 2004,
+      "wins_30d": 1178,
+      "win_rate": 0.588,
+      "realized_pnl_30d": 245592.91
     },
     {
       "address": "0x511f9c771449162349795d17becf8b37031acbe1",
@@ -1004,10 +1004,10 @@
     },
     {
       "address": "0xd1ed12197b7dc22dede923727e9b714024dbd7cb",
-      "n_trades_30d": 483,
-      "wins_30d": 365,
-      "win_rate": 0.756,
-      "realized_pnl_30d": 107444.84
+      "n_trades_30d": 481,
+      "wins_30d": 363,
+      "win_rate": 0.755,
+      "realized_pnl_30d": 107289.24
     },
     {
       "address": "0xdf17f4a8dd01a4cfa6fc3da323a2baee5f8697d1",
@@ -1018,10 +1018,10 @@
     },
     {
       "address": "0x6d3c5bd13984b2de47c3a88ddc455309aab3d294",
-      "n_trades_30d": 934,
-      "wins_30d": 704,
-      "win_rate": 0.754,
-      "realized_pnl_30d": 104934.05
+      "n_trades_30d": 933,
+      "wins_30d": 703,
+      "win_rate": 0.753,
+      "realized_pnl_30d": 104815.94
     },
     {
       "address": "0xde7be6d489bce070a959e0cb813128ae659b5f4b",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "491a32d9535219de4156d04c8d4ccc286c504ee4a037d5057feb6d41ee98ab43",
-    "signature_hex": "c418f45b81f25d888b2df6fa5864b33232bd27b1a759e1b2f8ded237de4afda1391f22e385d989908e57fa3fdf55abe8dc5308a8c9c4469bfecc7e6b044c15511c",
+    "digest_sha256": "669dd3acea30c6e72b79575ef4665a5db7e17e5f549fb90da43f22ce7d15135e",
+    "signature_hex": "e0e9e42939d4f7c3f38bd67774db57482962537ac79788648159d41831f9e2fc421f1c074da823d6b6d14f32f19858b0819d3e6fe95a829838341a983c4681091b",
     "recoverable": true
   }
 }
