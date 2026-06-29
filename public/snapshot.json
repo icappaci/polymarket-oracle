@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-29T20:03:46.431795+00:00",
-  "generated_at_unix": 1782763426,
+  "generated_at_utc": "2026-06-29T20:04:35.554453+00:00",
+  "generated_at_unix": 1782763475,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -940,18 +940,18 @@
       "realized_pnl_30d": 63101.92
     },
     {
-      "address": "0x43372356634781eea88d61bbdd7824cdce958882",
-      "n_trades_30d": 72,
-      "wins_30d": 54,
-      "win_rate": 0.75,
-      "realized_pnl_30d": 62793.23
-    },
-    {
       "address": "0xb1ca909e848cc24ec4e220ce1c453bc290c51705",
       "n_trades_30d": 52,
       "wins_30d": 37,
       "win_rate": 0.712,
       "realized_pnl_30d": 61959.51
+    },
+    {
+      "address": "0x43372356634781eea88d61bbdd7824cdce958882",
+      "n_trades_30d": 70,
+      "wins_30d": 52,
+      "win_rate": 0.743,
+      "realized_pnl_30d": 61666.71
     },
     {
       "address": "0x32ed517a571c01b6e9adecf61ba81ca48ff2f960",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "3e62b75fb9608f5148eaacacce16ac72618389c634dd1ea9b05eca5b20331a04",
-    "signature_hex": "9879e5b564c4fa2a9320594ba5748781071c4b49097692d3e4a6fc64a356d4280f33ccf6196f3c90f25f778d8f0479784db88f4a17b360bd00f3298de089d6801c",
+    "digest_sha256": "1b0b28fcb32de0c4c14fb6e2b7c321b35be07025976931ab7935483eb3e1eb56",
+    "signature_hex": "901823b70bb8c27ecb67704c2b9d071e2d856bf05e94ad48ac7a7e39d070936329d51b11ed8c29de567bef0a5ccb391b25a1aa3a2594fb9b12a0e27f1703fb7b1c",
     "recoverable": true
   }
 }
