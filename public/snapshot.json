@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-29T19:07:19.476617+00:00",
-  "generated_at_unix": 1782760039,
+  "generated_at_utc": "2026-06-29T19:08:36.194711+00:00",
+  "generated_at_unix": 1782760116,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -500,10 +500,10 @@
     },
     {
       "address": "0x70d94a4ff67ed919a8480885cf0808afefe7a684",
-      "n_trades_30d": 345,
-      "wins_30d": 167,
-      "win_rate": 0.484,
-      "realized_pnl_30d": 363160.8
+      "n_trades_30d": 344,
+      "wins_30d": 166,
+      "win_rate": 0.483,
+      "realized_pnl_30d": 363151.14
     },
     {
       "address": "0x72d815133f9f8b6529e911cf3be492846ce05213",
@@ -548,18 +548,18 @@
       "realized_pnl_30d": 283076.97
     },
     {
-      "address": "0xbacd00c9080a82ded56f504ee8810af732b0ab35",
-      "n_trades_30d": 150,
-      "wins_30d": 67,
-      "win_rate": 0.447,
-      "realized_pnl_30d": 272957.58
-    },
-    {
       "address": "0xd48a81db62f742c4e42d86dfc23a7ee345366e90",
       "n_trades_30d": 84,
       "wins_30d": 76,
       "win_rate": 0.905,
       "realized_pnl_30d": 271603.78
+    },
+    {
+      "address": "0xbacd00c9080a82ded56f504ee8810af732b0ab35",
+      "n_trades_30d": 149,
+      "wins_30d": 66,
+      "win_rate": 0.443,
+      "realized_pnl_30d": 271209.1
     },
     {
       "address": "0x4207c4f53b785c6d0d48512a497ebd845c29b81b",
@@ -570,10 +570,10 @@
     },
     {
       "address": "0x9c76cdb43fb46454da005fbc82047a64a18ec926",
-      "n_trades_30d": 135,
-      "wins_30d": 121,
-      "win_rate": 0.896,
-      "realized_pnl_30d": 264369.22
+      "n_trades_30d": 131,
+      "wins_30d": 118,
+      "win_rate": 0.901,
+      "realized_pnl_30d": 261566.83
     },
     {
       "address": "0xbee54d90051720e27921dc6874f02d646ffca636",
@@ -612,10 +612,10 @@
     },
     {
       "address": "0x511f9c771449162349795d17becf8b37031acbe1",
-      "n_trades_30d": 1032,
-      "wins_30d": 424,
-      "win_rate": 0.411,
-      "realized_pnl_30d": 190407.25
+      "n_trades_30d": 1030,
+      "wins_30d": 422,
+      "win_rate": 0.41,
+      "realized_pnl_30d": 190285.1
     },
     {
       "address": "0x1117eade222413335b7ec959e5b48c1d3dbc3532",
@@ -717,10 +717,10 @@
     },
     {
       "address": "0x84571f1bf97a5c710cbe51daff2dd4556cc887fd",
-      "n_trades_30d": 297,
-      "wins_30d": 111,
-      "win_rate": 0.374,
-      "realized_pnl_30d": 140586.82
+      "n_trades_30d": 296,
+      "wins_30d": 110,
+      "win_rate": 0.372,
+      "realized_pnl_30d": 140586.81
     },
     {
       "address": "0x204f72f35326db932158cba6adff0b9a1da95e14",
@@ -752,10 +752,10 @@
     },
     {
       "address": "0xc1265aa3d6f6c8315756bc46305f29c0f7a4832c",
-      "n_trades_30d": 417,
-      "wins_30d": 393,
+      "n_trades_30d": 415,
+      "wins_30d": 391,
       "win_rate": 0.942,
-      "realized_pnl_30d": 127330.55
+      "realized_pnl_30d": 127330.35
     },
     {
       "address": "0xee1706b93845d50ea60e49219be7311a2ebb6ea1",
@@ -976,10 +976,10 @@
     },
     {
       "address": "0xc3cd1d612bbf9fbf80da5a9bff0b0470cb46816c",
-      "n_trades_30d": 706,
-      "wins_30d": 296,
-      "win_rate": 0.419,
-      "realized_pnl_30d": 60103.77
+      "n_trades_30d": 705,
+      "wins_30d": 295,
+      "win_rate": 0.418,
+      "realized_pnl_30d": 60102.87
     },
     {
       "address": "0x5739ddf8672627ce076eff5f444610a250075f1a",
@@ -1067,10 +1067,10 @@
     },
     {
       "address": "0xa3282d3e882501229c75d0caf134e62e3afb4977",
-      "n_trades_30d": 1542,
-      "wins_30d": 489,
+      "n_trades_30d": 1531,
+      "wins_30d": 485,
       "win_rate": 0.317,
-      "realized_pnl_30d": 48569.05
+      "realized_pnl_30d": 48567.73
     },
     {
       "address": "0xe8725f4bd4de73c888dda35c4850f702c322819a",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "3d792d391c036451b06f75d90c4697b7b58a43d7e9be422fb6803d38bf35280a",
-    "signature_hex": "4930129dbe45c75c0f49591e8b4a14be1a1985665f0620d7da84f5c875793f9e0169097d72fcef4a1f9c263a181bcc383fad097178ac2821abc4b74b3ecf90cd1c",
+    "digest_sha256": "09a7a0b044dea5e5a38739096d0b2b5cc1c5b818d0c2eaad679352d0da8427fc",
+    "signature_hex": "627a3ce24d55bccc2ed5644b05711b64d5c9859162756ba7f17ab4cdde0ebfa4506415d477752a4b5c85c196c2db51d95f668e1f4e9d5e505b58fe966611524f1b",
     "recoverable": true
   }
 }
