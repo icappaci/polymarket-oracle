@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-30T03:01:34.377342+00:00",
-  "generated_at_unix": 1782788494,
+  "generated_at_utc": "2026-06-30T03:02:34.307691+00:00",
+  "generated_at_unix": 1782788554,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -647,10 +647,10 @@
     },
     {
       "address": "0x2005d16a84ceefa912d4e380cd32e7ff827875ea",
-      "n_trades_30d": 1263,
-      "wins_30d": 743,
+      "n_trades_30d": 1261,
+      "wins_30d": 742,
       "win_rate": 0.588,
-      "realized_pnl_30d": 139480.91
+      "realized_pnl_30d": 139692.19
     },
     {
       "address": "0x234e004ffbd27fd2e81b22c7ffa4d1cadcbb65d2",
@@ -850,17 +850,17 @@
     },
     {
       "address": "0xc8ab97a9089a9ff7e6ef0688e6e591a066946418",
-      "n_trades_30d": 1064,
-      "wins_30d": 511,
+      "n_trades_30d": 1063,
+      "wins_30d": 510,
       "win_rate": 0.48,
-      "realized_pnl_30d": 63429.44
+      "realized_pnl_30d": 63428.35
     },
     {
       "address": "0xdb83e85ffd22faa4009273034770f96ffc5b1e50",
-      "n_trades_30d": 2167,
-      "wins_30d": 1303,
+      "n_trades_30d": 2162,
+      "wins_30d": 1300,
       "win_rate": 0.601,
-      "realized_pnl_30d": 62547.81
+      "realized_pnl_30d": 62402.42
     },
     {
       "address": "0xb1ca909e848cc24ec4e220ce1c453bc290c51705",
@@ -1111,8 +1111,8 @@
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "8986b0e4bb512e47cf150308ae22d3eeef5f25b0d6ca71dfc90313eb2c740d94",
-    "signature_hex": "cbbc0cd53f091fa0a2224c8363681f2c95c766d8fcb544386f87c7c8a3aa789219704bc126112a0d62fc5679e69eddfc91810c8cdbf8faa7ef992a0b5d1d13731b",
+    "digest_sha256": "012de7ab7c18655f53e0bc3e4d18c2ee118cd27b1ac5624d42cfee48e12b0dc7",
+    "signature_hex": "4607e13c6598c654c2d90b5e0e3efb927cbe284197403b17ba73fbb1e5a86ebe6764d752ee5252cd516207324718b9b1b23e5ceff5aa6a533db435cd0435415f1b",
     "recoverable": true
   }
 }
