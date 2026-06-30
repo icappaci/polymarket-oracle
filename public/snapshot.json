@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-30T08:53:34.080129+00:00",
-  "generated_at_unix": 1782809614,
+  "generated_at_utc": "2026-06-30T08:54:34.023321+00:00",
+  "generated_at_unix": 1782809674,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -899,10 +899,10 @@
     },
     {
       "address": "0xa3282d3e882501229c75d0caf134e62e3afb4977",
-      "n_trades_30d": 1431,
+      "n_trades_30d": 1430,
       "wins_30d": 451,
       "win_rate": 0.315,
-      "realized_pnl_30d": 47265.58
+      "realized_pnl_30d": 47266.9
     },
     {
       "address": "0xc3cd1d612bbf9fbf80da5a9bff0b0470cb46816c",
@@ -1073,13 +1073,6 @@
       "realized_pnl_30d": 28636.04
     },
     {
-      "address": "0x36901eb0f21519cc9055662a6d2483e96da1e16f",
-      "n_trades_30d": 1513,
-      "wins_30d": 511,
-      "win_rate": 0.338,
-      "realized_pnl_30d": 28631.65
-    },
-    {
       "address": "0x38181f43e5802391522583a82d05893df3039797",
       "n_trades_30d": 20,
       "wins_30d": 18,
@@ -1106,13 +1099,20 @@
       "wins_30d": 15,
       "win_rate": 0.833,
       "realized_pnl_30d": 27690.4
+    },
+    {
+      "address": "0x614dc8d3542c12103d2c6a3553fd761e391d1546",
+      "n_trades_30d": 27,
+      "wins_30d": 19,
+      "win_rate": 0.704,
+      "realized_pnl_30d": 27480.19
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "4855608ef256cedd4ae710f6b50f29ff70aa80436e156914d8b5a0e23da1aa41",
-    "signature_hex": "ad752e12717d30c2b5db3ade2062f70d1ddec1681a6481b3ed181628f89a3d525675ef9f471e9368797756f6d93e69100cf633dca03ea16f169d55120d17983a1c",
+    "digest_sha256": "160f3eabaa7bf38de30f4ae0f35d2c8ca36e02ea67a6f8b1396d7cc29ad12717",
+    "signature_hex": "68c9787ecd57b483072a7ed447c443a2447216a82cc28af2f7701d5ab8e0aea778c8a10e9bd1536425ecc5317a0b71112844fe5d71c80d7535a8b9bd725ea3ab1c",
     "recoverable": true
   }
 }
