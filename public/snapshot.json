@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-30T13:45:54.387622+00:00",
-  "generated_at_unix": 1782827154,
+  "generated_at_utc": "2026-06-30T13:47:05.588866+00:00",
+  "generated_at_unix": 1782827225,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -416,10 +416,10 @@
     },
     {
       "address": "0xbddf61af533ff524d27154e589d2d7a81510c684",
-      "n_trades_30d": 40,
+      "n_trades_30d": 39,
       "wins_30d": 26,
-      "win_rate": 0.65,
-      "realized_pnl_30d": 663111.09
+      "win_rate": 0.667,
+      "realized_pnl_30d": 672406.59
     },
     {
       "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
@@ -1045,6 +1045,13 @@
       "realized_pnl_30d": 30915.86
     },
     {
+      "address": "0x21064fd320bfd5a86f8c92a94d3209edf4154dea",
+      "n_trades_30d": 259,
+      "wins_30d": 109,
+      "win_rate": 0.421,
+      "realized_pnl_30d": 30139.88
+    },
+    {
       "address": "0x5a218c7ad04135830a45c41aaed7294df7809318",
       "n_trades_30d": 2994,
       "wins_30d": 900,
@@ -1099,20 +1106,13 @@
       "wins_30d": 61,
       "win_rate": 0.508,
       "realized_pnl_30d": 27419.27
-    },
-    {
-      "address": "0xb0d62e7959377b18fd63b772c74147724e0e7475",
-      "n_trades_30d": 2552,
-      "wins_30d": 679,
-      "win_rate": 0.266,
-      "realized_pnl_30d": 26578.48
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "36495e0bee11c6b02f2e85dc626a577dc95be06480e035fdd074211b17b547a0",
-    "signature_hex": "e4dc6dcaef1fd97f94775572df24737179df1f954c8b1779905427fbf59f814e2e77ebb0180bd5862c43edf4676c970ac57dc2fd0da31997c972d5e3c3a920ad1c",
+    "digest_sha256": "7656f83baf67a11e83d50f20e03eb7aed304f58e051def293b9eefe017f5cdaf",
+    "signature_hex": "f82e015c87afe123b8bb18878072e54bcb50d58a44c57f1bcc9e38bd2e54638e4cfea8ac12e9045c09ced25046b075dde3684f8ad56cba6316095c0f0de712341c",
     "recoverable": true
   }
 }
