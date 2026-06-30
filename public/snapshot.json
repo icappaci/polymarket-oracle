@@ -1,7 +1,7 @@
 {
   "schema_version": "v0.1",
-  "generated_at_utc": "2026-06-30T12:48:37.020246+00:00",
-  "generated_at_unix": 1782823717,
+  "generated_at_utc": "2026-06-30T12:49:36.274380+00:00",
+  "generated_at_unix": 1782823776,
   "source": "polymarket_oracle_mvp",
   "lookback_days": 30,
   "top_markets": [
@@ -870,13 +870,6 @@
       "realized_pnl_30d": 49769.65
     },
     {
-      "address": "0x08fff5b9a79576a7c6e18a9d05ece0658a34ba79",
-      "n_trades_30d": 22,
-      "wins_30d": 6,
-      "win_rate": 0.273,
-      "realized_pnl_30d": 49493.12
-    },
-    {
       "address": "0xf201a19b43471261a3c1ba9247335d55270e527e",
       "n_trades_30d": 52,
       "wins_30d": 36,
@@ -892,10 +885,10 @@
     },
     {
       "address": "0xa3282d3e882501229c75d0caf134e62e3afb4977",
-      "n_trades_30d": 1389,
-      "wins_30d": 433,
+      "n_trades_30d": 1386,
+      "wins_30d": 432,
       "win_rate": 0.312,
-      "realized_pnl_30d": 46270.82
+      "realized_pnl_30d": 46233.65
     },
     {
       "address": "0xc3cd1d612bbf9fbf80da5a9bff0b0470cb46816c",
@@ -1106,13 +1099,20 @@
       "wins_30d": 19,
       "win_rate": 0.704,
       "realized_pnl_30d": 27480.19
+    },
+    {
+      "address": "0xdb250854cb0a4c1784fe2d1179f5c3c4577feb12",
+      "n_trades_30d": 120,
+      "wins_30d": 61,
+      "win_rate": 0.508,
+      "realized_pnl_30d": 27419.27
     }
   ],
   "signature": {
     "signer_address": "0x1C2Dd3AFA33cF338332C47024BdB747d3240551C",
     "algorithm": "ECDSA-secp256k1 over SHA256(canonical_json)",
-    "digest_sha256": "eb74be2b3fa8a0d800777ee2c864b5f02eea0b1b67d68e474d72710d8dd71a90",
-    "signature_hex": "b1804902fc2f61cb6a61afd4af69479bb0f640b39298afab80206e14e59d6ce224886353c5923ab94249cf06f2d64288261c115b3acd913a46c695a39addfef91c",
+    "digest_sha256": "de56d37dddc2f986a6eaf6f6db3e65a16aa4159092b54b8257479d6ec1d6c12e",
+    "signature_hex": "b3d5bd9cac48c7350bfc248b01c1f9a191003d252cd8866e5224030866a84d786cdad35c1c2de51b8c50eb73f76b573f426f7c7bc6f97da9f63dcfa326c54d701b",
     "recoverable": true
   }
 }
